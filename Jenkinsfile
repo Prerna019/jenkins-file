@@ -7,24 +7,25 @@ pipeline {
     }
     stages {
 		stage("Test")
-		step
-			input 'Do you want to proceed?'
+	    		steps{
+				input 'Do you want to proceed?'
+			}
 		}
-	}
 	        stage('pre-build')
-		parallel{
-			stage('unittest'){
-				steps{
-					echo'I am in Unit Testing Phase..'
+			parallel{
+				stage('unittest'){
+					steps{
+						echo'I am in Unit Testing Phase..'
+					}
 				}
-			}
-			stage('integrationtest'){
-				steps{
-					echo'I am in Integration Testing Phase..'
+				stage('integrationtest'){
+					steps{
+						echo'I am in Integration Testing Phase..'
+					}
 				}
 			}
 		}
-	}
+
     stages {
         stage('Build') {
             steps {
