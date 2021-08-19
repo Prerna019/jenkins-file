@@ -6,12 +6,12 @@ pipeline {
         maven "Maven3"
     }
     stages {
-		stage("Test")
+	    stage("Test"){
 	    		steps{
 				input 'Do you want to proceed?'
 			}
 		}
-	        stage('pre-build')
+	    stage('pre-build'){
 			parallel{
 				stage('unittest'){
 					steps{
@@ -24,9 +24,7 @@ pipeline {
 					}
 				}
 			}
-		}
-
-    stages {
+		
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
