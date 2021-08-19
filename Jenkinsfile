@@ -10,13 +10,13 @@ pipeline {
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
-                git 'https://github.com/Prerna019/bankapprepo.git'
+                git 'https://github.com/capgteam/bankapp.git'
 
                 // Run Maven on a Unix agent.
                 //sh "mvn -Dmaven.test.failure.ignore=true clean package"
 
                 // To run Maven on a Windows agent, use
-                bat "mvn -f Day1-BankApp\\pom.xml -Dmaven.test.failure.ignore=true clean package"
+                 bat "mvn -f Day1-BankApp\\pom.xml -Dmaven.test.failure.ignore=true clean package"
             }
 
             post {
@@ -30,5 +30,4 @@ pipeline {
         }
     }
 }
-
            
